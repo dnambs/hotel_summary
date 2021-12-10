@@ -10,7 +10,7 @@ from sentence_transformers import SentenceTransformer, util
 from summarizer.sbert import SBertSummarizer
 from tqdm import tqdm
 
-st.header("Wow")
+st.header("London Hotels")
 
 
 
