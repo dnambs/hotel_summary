@@ -12,7 +12,6 @@ from tqdm import tqdm
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-
 st.header("London Hotels")
 
 
