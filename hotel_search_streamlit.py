@@ -32,7 +32,7 @@ def main():
     #         #distances = scipy.spatial.distance.cdist([query_embedding], corpus_embeddings, "cosine")[0]
     #         distances = util.pytorch_cos_sim(query_embedding, corpus_embeddings)[0]
     #         top_results = torch.topk(distances, k=closest_n)
-    # 
+    #
     #         #results = zip(range(len(distances)), distances)
     #         #results = sorted(results, key=lambda x: x[1])
     #
