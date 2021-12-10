@@ -10,23 +10,11 @@ from sentence_transformers import SentenceTransformer, util
 from summarizer.sbert import SBertSummarizer
 from tqdm import tqdm
 
-silence_tensorflow()
-
-
-def lower_case(input_str):
-    input_str = input_str.lower()
-    return input_str
-
-def summarized_review(data):
-    print("Data",data)
-    model = SBertSummarizer('paraphrase-MiniLM-L6-v2')
-    result = model(data, num_sentences=3)
-    return result
-
 def main():
     embedder = SentenceTransformer('all-MiniLM-L6-v2')
     df = pd.read_csv("hotelReviewsInLondon.csv")
 
+    print("Revieeeeeeew", df)
     df['hotelName'].drop_duplicates()
     df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review_body.apply(''.join).reset_index(
         name='all_review')
@@ -40,10 +28,10 @@ def main():
     df_combined['all_review'] = df_combined['all_review'].apply(lambda x: lower_case(x))
     df = df_combined.copy()
     df_sentences = df_combined.set_index("all_review")
-
+    print(df_sentences.head())
     df_sentences = df_sentences["hotelName"].to_dict()
     df_sentences_list = list(df_sentences.keys())
-
+    print(len(df_sentences_list))
     df_sentences_list = [str(d) for d in tqdm(df_sentences_list)]
     corpus = df_sentences_list
     corpus_embeddings = embedder.encode(corpus)
