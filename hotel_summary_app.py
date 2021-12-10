@@ -4,13 +4,12 @@ import pandas as pd
 import scipy.spatial
 
 import streamlit as st
-from silence_tensorflow import silence_tensorflow
 from sentence_transformers import SentenceTransformer, util
 #from summarizer import Summarizer
 from summarizer.sbert import SBertSummarizer
 from tqdm import tqdm
 
-silence_tensorflow()
+
 
 
 def lower_case(input_str):

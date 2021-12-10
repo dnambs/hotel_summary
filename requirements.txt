@@ -1,7 +1,6 @@
 streamlit
 regex
 sentence_transformers
-silence_tensorflow
 scipy
 tqdm
 plotly
